@@ -13,12 +13,60 @@ const posts = await getCollection("blog");
 let tags = getUniqueTags(posts);
 ---
 
-<Layout title={`Tags | ${SITE.title}`}>
+<Layout title={`Contacts | ${SITE.title}`}>
   <Header />
-  <Main pageTitle="Tags" pageDesc="All the tags used in posts.">
+
+  <Main pageTitle="Contact me via" pageDesc="Get in touch or follow me online.">
+
+    <!-- Contact Info -->
+    <section class="mb-10 space-y-4 text-lg">
+      <p>
+        📧 <span class="font-semibold">Email:</span>
+        <a
+          href="mailto:alex@zolotarov.email"
+          class="text-blue-500 hover:underline"
+        >
+          alex@zolotarov.email
+        </a>
+      </p>
+
+      <div>
+        <p class="font-semibold">Follow me on</p>
+
+        <ul class="mt-2 space-y-2">
+          <li>
+            🐙 <span class="font-semibold">GitHub:</span>
+            <a
+              href="https://github.com/webgtx"
+              target="_blank"
+              class="text-blue-500 hover:underline"
+            >
+              webgtx
+            </a>
+          </li>
+
+          <li>
+            💼 <span class="font-semibold">LinkedIn:</span>
+            <a
+              href="https://www.linkedin.com/in/alxzolotarov"
+              target="_blank"
+              class="text-blue-500 hover:underline"
+            >
+              alxzolotarov
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Tags -->
     <ul class="flex flex-wrap gap-6">
-      {tags.map(({ tag, tagName }) => <Tag {tag} {tagName} />)}
+      {tags.map(({ tag, tagName }) => (
+        <Tag tag={tag} tagName={tagName} />
+      ))}
     </ul>
+
   </Main>
+
   <Footer />
 </Layout>
